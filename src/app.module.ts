@@ -5,9 +5,13 @@ import { IntentsBitField } from 'discord.js';
 import { AppUpdate } from './app.update';
 import { NecordModule } from 'necord';
 import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { ExampleModule } from './example/example.module';
 
 @Module({
   imports: [
+    MongooseModule.forRoot('mongodb://localhost/bot'),
+    ExampleModule,
     ConfigModule.forRoot(),
     NecordModule.forRoot({
       token: process.env.DISCORD_BOT_TOKEN,
