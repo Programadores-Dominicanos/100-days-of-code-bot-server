@@ -1,9 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-type Object = {
-
-}
+type Obj = { }
 
 export type ExampleDocument = HydratedDocument<Example>;
 
@@ -18,8 +16,8 @@ export class Example {
     @Prop()
     is: boolean;
 
-    @Prop({ type: Object })
-    object: Object;
+    @Prop()
+    object: Obj;
 
     @Prop({ default: Date.now })
     date: Date;
