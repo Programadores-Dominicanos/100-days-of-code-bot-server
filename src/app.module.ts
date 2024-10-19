@@ -7,10 +7,11 @@ import { NecordModule } from 'necord';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ExampleModule } from './example/example.module';
+import { ChallengeTrackerModule } from './features/challenge-tracker/challenge-tracker.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/bot'),
+    MongooseModule.forRoot('mongodb://localhost/discord_bot'),
     ExampleModule,
     ConfigModule.forRoot(),
     NecordModule.forRoot({
@@ -21,6 +22,7 @@ import { ExampleModule } from './example/example.module';
         IntentsBitField.Flags.MessageContent,
       ],
     }),
+    ChallengeTrackerModule,
   ],
   controllers: [AppController],
   providers: [AppService, AppUpdate],
