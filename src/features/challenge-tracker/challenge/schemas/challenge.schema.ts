@@ -1,11 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-export type ChallengeDocument = HydratedDocument<Challenge>;
+import { ChallengeStatus } from './challenge-status.enum';
+import {
+  ChallengeParticipantStatus,
+  ChallengeParticipantStatusSchema,
+} from './challenge-participant-status.schema';
 
-export enum ChallengeStatus {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE',
-}
+export type ChallengeDocument = HydratedDocument<Challenge>;
 
 @Schema()
 export class Challenge {
@@ -37,6 +38,9 @@ export class Challenge {
 
   @Prop({ required: true, default: Date.now })
   created_at: Date;
+
+  @Prop({ type: [ChallengeParticipantStatusSchema] })
+  participants: ChallengeParticipantStatus[];
 }
 
 export const ChallengeSchema = SchemaFactory.createForClass(Challenge);
