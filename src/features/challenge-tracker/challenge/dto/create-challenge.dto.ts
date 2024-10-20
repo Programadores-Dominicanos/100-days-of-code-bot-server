@@ -1,5 +1,5 @@
 import { IsString, IsNumber, IsEnum, IsOptional } from 'class-validator';
-import { ChallengeStatus } from '../schemas/challenge.schema';
+import { ChallengeStatus } from '../schemas/challenge-status.enum';
 
 export class CreateChallengeDTO {
   @IsString()
