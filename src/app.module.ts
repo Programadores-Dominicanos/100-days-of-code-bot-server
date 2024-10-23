@@ -8,6 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ExampleModule } from './example/example.module';
 import { ChallengeTrackerModule } from './features/challenge-tracker/challenge-tracker.module';
+import { DiscordProxyModule } from './features/discord-proxy/discord-proxy.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { ChallengeTrackerModule } from './features/challenge-tracker/challenge-t
       ],
     }),
     ChallengeTrackerModule,
+    DiscordProxyModule,
   ],
   controllers: [AppController],
   providers: [AppService, AppUpdate],

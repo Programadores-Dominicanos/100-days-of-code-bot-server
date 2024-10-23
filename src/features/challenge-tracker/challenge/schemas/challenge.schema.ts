@@ -18,11 +18,11 @@ export class Challenge {
 
   // @TODO  this is going to be a ObjectID()
   @Prop({ required: true })
-  channel_id: number;
+  channelId: string;
 
   // @TODO  this is going to be a ObjectID()
   @Prop({ required: true })
-  role_id: number;
+  roleId: string;
 
   @Prop({
     enum: ChallengeStatus,

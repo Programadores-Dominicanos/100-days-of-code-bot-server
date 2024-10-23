@@ -7,7 +7,7 @@ export class ChallengeController {
   constructor(private readonly challengeService: ChallengeService) {}
 
   @Post()
-  async create(@Body() createChallengeDto: CreateChallengeDTO) {
-    return this.challengeService.create(createChallengeDto);
+  async createChallenge(@Body() createChallengeDto: CreateChallengeDTO) {
+    return this.challengeService.createChallenge(createChallengeDto);
   }
 }
