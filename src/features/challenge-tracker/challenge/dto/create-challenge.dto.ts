@@ -1,5 +1,12 @@
-import { IsString, IsNumber, IsEnum, IsOptional } from 'class-validator';
+import {
+  IsString,
+  IsNumber,
+  IsEnum,
+  IsOptional,
+  IsArray,
+} from 'class-validator';
 import { ChallengeStatus } from '../schemas/challenge-status.enum';
+import { CreateParticipantDTO } from '../../participant/dto/create-participant.dto';
 
 export class CreateChallengeDTO {
   @IsString()
@@ -8,11 +15,11 @@ export class CreateChallengeDTO {
   @IsString()
   description: string;
 
-  @IsNumber()
-  channel_id: number;
+  @IsString()
+  channelId: string;
 
-  @IsNumber()
-  role_id: number;
+  @IsString()
+  roleId: string;
 
   @IsEnum(ChallengeStatus)
   @IsOptional()
@@ -25,4 +32,7 @@ export class CreateChallengeDTO {
   @IsNumber()
   @IsOptional()
   completion_days?: number;
+
+  @IsArray()
+  participants: CreateParticipantDTO[];
 }

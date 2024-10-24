@@ -8,10 +8,10 @@ import {
 @Schema()
 export class Participant {
   @Prop({ required: true })
-  display_name: string;
+  displayName: string;
 
   @Prop({ required: true })
-  user_id: string;
+  userId: string;
 
   @Prop({ required: true })
   username: string;

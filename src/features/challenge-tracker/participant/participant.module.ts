@@ -12,5 +12,6 @@ import { Participant, ParticipantSchema } from './schema/participant.schema';
   ],
   controllers: [ParticipantController],
   providers: [ParticipantService],
+  exports: [ParticipantService], // Export ParticipantService
 })
 export class ParticipantModule {}

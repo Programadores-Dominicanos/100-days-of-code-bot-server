@@ -1,20 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ParticipantController } from './participant.controller';
-import { ParticipantService } from './participant.service';
-import { DiscordProxyService } from '../../discord-proxy/discord-proxy.service';
+import { DiscordProxyController } from './discord-proxy.controller';
+import { DiscordProxyService } from './discord-proxy.service';
 import { Client } from 'discord.js';
 
-describe('ParticipantController', () => {
-  let controller: ParticipantController;
-  let mockParticipantService: Partial<ParticipantService>;
+describe('DiscordProxyController', () => {
+  let controller: DiscordProxyController;
   let mockDiscordProxyService: Partial<DiscordProxyService>;
   let mockDiscordClient: Partial<Client>;
 
   beforeEach(async () => {
-    mockParticipantService = {
-      // Add mock methods here if needed
-    };
-
     mockDiscordProxyService = {
       // Add mock methods here if needed
     };
@@ -24,12 +18,8 @@ describe('ParticipantController', () => {
     };
 
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [ParticipantController],
+      controllers: [DiscordProxyController],
       providers: [
-        {
-          provide: ParticipantService,
-          useValue: mockParticipantService,
-        },
         {
           provide: DiscordProxyService,
           useValue: mockDiscordProxyService,
@@ -41,7 +31,7 @@ describe('ParticipantController', () => {
       ],
     }).compile();
 
-    controller = module.get<ParticipantController>(ParticipantController);
+    controller = module.get<DiscordProxyController>(DiscordProxyController);
   });
 
   it('should be defined', () => {
