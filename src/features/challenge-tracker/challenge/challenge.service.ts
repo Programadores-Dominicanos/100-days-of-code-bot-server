@@ -19,9 +19,7 @@ export class ChallengeService {
    * @param CreateChallengeDTO The data transfer object containing challenge details.
    * @returns A Promise resolving to the created Challenge.
    */
-  async createChallenge(
-    createChallengeDto: CreateChallengeDTO,
-  ): Promise<Challenge> {
+  async create(createChallengeDto: CreateChallengeDTO): Promise<Challenge> {
     const {
       title,
       description,
@@ -32,7 +30,6 @@ export class ChallengeService {
       participants,
       channelId,
     } = createChallengeDto;
-    //create participants
 
     const participantIds = participants.map(
       (participant) => participant.userId,
